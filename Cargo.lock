@@ -352,7 +352,7 @@ dependencies = [
 
 [[package]]
 name = "python-core"
-version = "0.3.5"
+version = "0.3.5-1"
 dependencies = [
  "pyo3",
  "wcore",

@@ -10,19 +10,19 @@ fn create_pylist<'a>(py: Python, acc: &'a PyList, wcode: Vec<WTokens>) -> &'a Py
      for section in wcode {
         for code_result in section {
             match code_result {
-                Container(x) | ContainerLiteral(x) | Atom(x) | Special(x) => {acc.append(x);},
-                Value(x) => {acc.append(x);},
+                Container(x) | ContainerLiteral(x) | Atom(x) | Special(x) => acc.append(x).unwrap(),
+                Value(x) => acc.append(x).unwrap(),
                 Function(x) | FunctionLiteral(x) => {
                     let address: *const i8 = addr_of!(x).cast();
                     let slice = unsafe { ffi::CStr::from_ptr(address) };
-                    acc.append(slice.to_string_lossy().into_owned());
+                    acc.append(slice.to_string_lossy().into_owned()).unwrap()
                 }
-                Parameter(x) => {acc.append(match x {
+                Parameter(x) => acc.append(match x {
                     Range::Full(y) => format!("{}..={}", y.start(), y.end()),
                     Range::To(y) => format!("..{}", y.start),
                     Range::From(y) => format!("{}..", y.end),
-                });},
-                Group(x) => {acc.append(create_pylist(py, PyList::empty(py), vec![x]));},
+                }).unwrap(),
+                Group(x) => acc.append(create_pylist(py, PyList::empty(py), vec![x])).unwrap(),
             };
         }
     }
