@@ -352,7 +352,7 @@ dependencies = [
 
 [[package]]
 name = "python-core"
-version = "0.3.4-1"
+version = "0.3.5"
 dependencies = [
  "pyo3",
  "wcore",
@@ -506,9 +506,9 @@ checksum = "fd6fbd9a79829dd1ad0cc20627bf1ed606756a7f77edff7b66b7064f9cb327c6"
 
 [[package]]
 name = "wcore"
-version = "0.3.4"
+version = "0.3.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bb67cfe9e7cce0b305ae3002833dcf3911c335ec399d9e5b5593c83fc0e84967"
+checksum = "35e7e9d20efac222c82983c23480995d2747efaeba57899e993b3cf55df311f5"
 dependencies = [
  "itertools",
  "lazy_static",
