@@ -87,9 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: PyPi publish
-        env:
-          MATURIN_PASSWORD: ${{ secrets.PYPI }}
-        run: maturin publish --username __token__
+        run: maturin publish --username ${{ secrets.PYPI_TOKEN }}
 
   python-publish-linux:
     needs: create-release
@@ -120,6 +118,4 @@ jobs:
           pip install maturin
 
       - name: PyPi publish
-        env:
-          MATURIN_PASSWORD: ${{ secrets.PYPI_TOKEN }}
-        run: maturin publish --username __token__
+        run: maturin publish --username ${{ secrets.PYPI_TOKEN }}
