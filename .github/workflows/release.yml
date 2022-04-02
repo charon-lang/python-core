@@ -38,19 +38,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, 3.10]
+        python-version: ['3.6', '3.7', '3.8', '3.9', '3.10']
         os: [macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v1
 
-      - uses: actions/setup-python@v1
+      - uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install latest nightly
+      - name: Install latest stable
         uses: actions-rs/toolchain@v1
         with:
-            toolchain: nightly
+            toolchain: stable
             override: true
 
       - name: Install maturin
@@ -110,9 +110,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-python@v1
+      - uses: actions/setup-python@v3
         with:
-          python-version: 3.10
+          python-version: '3.10'
 
       - name: Install maturin
         run: |
