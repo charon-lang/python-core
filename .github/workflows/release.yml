@@ -50,7 +50,8 @@ jobs:
       - name: Install latest nightly
         uses: actions-rs/toolchain@v1
         with:
-          override: true
+            toolchain: nightly
+            override: true
 
       - name: Install maturin
         run: |
