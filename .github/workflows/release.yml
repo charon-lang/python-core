@@ -90,7 +90,7 @@ jobs:
         run: maturin publish --username __token__
 
   python-publish-linux:
-    need: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
