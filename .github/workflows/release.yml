@@ -33,7 +33,6 @@ jobs:
       - run: cargo publish
 
   python-publish-nonlinux:
-    needs: rust-publish
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -92,7 +91,6 @@ jobs:
         run: maturin publish --username __token__
 
   python-publish-linux:
-    needs: rust-publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
