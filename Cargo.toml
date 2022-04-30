@@ -1,6 +1,6 @@
 [package]
 name = "python-core"
-version = "0.4.4"
+version = "0.5.1"
 edition = "2021"
 readme = "README.md"
 license = "MIT"
@@ -15,7 +15,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = { version = "0.15.1", features = ["extension-module", "macros"] }
-wcore = "0.4.4"
+wcore = "0.5.1"
 
 [package.metadata.maturin]
 python-source = "package"
