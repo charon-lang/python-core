@@ -13,6 +13,7 @@ fn create_pylist<'a>(py: Python, acc: &'a PyList, wcode: Vec<WTokens>) -> &'a Py
         for code_result in section {
             match code_result {
                 Container(x) | ContainerLiteral(x) | Atom(x) | Special(x) => acc.append(x).unwrap(),
+                Char(x) => acc.append(x).unwrap(),
                 Value(x) => acc.append(x).unwrap(),
                 Function(x) | FunctionLiteral(x) => {
                     let address: *const i8 = addr_of!(x).cast();
